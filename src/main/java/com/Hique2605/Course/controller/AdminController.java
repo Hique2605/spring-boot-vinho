@@ -1,4 +1,4 @@
-package com.Hique2605.Course.resources;
+package com.Hique2605.Course.controller;
 
 import com.Hique2605.Course.entities.Admin;
 import com.Hique2605.Course.services.AdminService;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/admins")
-public class AdminResource {
+public class AdminController {
 
     @Autowired
     private AdminService service;

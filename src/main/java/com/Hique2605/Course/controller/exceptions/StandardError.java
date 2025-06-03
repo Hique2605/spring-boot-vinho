@@ -1,4 +1,4 @@
-package com.Hique2605.Course.resources.exceptions;
+package com.Hique2605.Course.controller.exceptions;
 
 import java.io.Serializable;
 import java.time.Instant;

@@ -1,4 +1,4 @@
-package com.Hique2605.Course.resources;
+package com.Hique2605.Course.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -20,7 +20,7 @@ import com.Hique2605.Course.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserResource {
+public class UserController {
 	
 	@Autowired
 	private UserService service ;
@@ -28,9 +28,14 @@ public class UserResource {
 	@GetMapping
 	public ResponseEntity<List<User>> findAll(){
 		List<User> list = service.findAll();
-				
 		return ResponseEntity.ok().body(list);
 			
+	}
+
+	@GetMapping(value = "/buscarPorEmail/{email}")
+	public ResponseEntity<User> findByEmail(@PathVariable String email){
+		User obj = service.findByEmail(email);
+		return ResponseEntity.ok().body(obj);
 	}
 	
 	@GetMapping(value = "/{id}")

@@ -1,6 +1,5 @@
-package com.Hique2605.Course.resources;
+package com.Hique2605.Course.controller;
 
-import com.Hique2605.Course.entities.Order;
 import com.Hique2605.Course.entities.Representante;
 import com.Hique2605.Course.services.RepresentanteService;
 
@@ -14,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/representantes")
-public class RepresentanteResource {
+public class RepresentanteController {
 
     @Autowired
     private RepresentanteService service;

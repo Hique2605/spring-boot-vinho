@@ -1,4 +1,4 @@
-package com.Hique2605.Course.resources;
+package com.Hique2605.Course.controller;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import com.Hique2605.Course.services.OrderService;
 
 @RestController
 @RequestMapping(value = "/orders")
-public class OrderResource {
+public class OrderController {
 	
 	@Autowired
 	private OrderService service ;
@@ -44,13 +44,11 @@ public class OrderResource {
 		List<Order> list = service.findByRepresentanteId(representanteId);
 		return ResponseEntity.ok().body(list);
 	}
-		/*
-	@GetMapping(value = "/users/{usersId}")
-	public ResponseEntity<List<Users>> findByUser(@PathVariable Long userId) {
-		List<Order> list = service.findByUserId(userId);
-		return ResponseEntity.ok().body(list);
-	}
-		*/
+
+
+	//fazer find findByRepresentanteId    E  Id do client ? exp seller id tal / do client tal idclient
+	//http://localhost:8080/orders/representante/3/users/1
+
 
 
 }

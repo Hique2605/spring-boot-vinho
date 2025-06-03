@@ -1,9 +1,8 @@
-package com.Hique2605.Course.resources;
+package com.Hique2605.Course.controller;
 
 import java.net.URI;
 import java.util.List;
 
-import com.Hique2605.Course.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "/vinhos")
-public class VinhoResource {
+public class VinhoController {
 	
 	@Autowired
 	private VinhoService service ;
