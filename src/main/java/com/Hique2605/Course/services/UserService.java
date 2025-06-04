@@ -33,7 +33,7 @@ public class UserService {
 
 	public User findByEmail(String email) {
 		Optional<User>	obj = repository.findByEmail(email);
-		return obj.orElseThrow(() -> new ResourceNotFoundException(99));
+		return obj.orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + email));
 	}
 	
 	//cria user 

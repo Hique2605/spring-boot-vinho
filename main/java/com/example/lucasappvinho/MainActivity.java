@@ -1,5 +1,6 @@
 package com.example.lucasappvinho;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,15 +47,25 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response != null && response.isSuccessful()) {
-
                             User userResponse = response.body();
-                            if (userResponse.getPassword().equals(editPassword.getText().toString())) {
-                                Toast.makeText(MainActivity.this, "Logado com sucesso", Toast.LENGTH_LONG).show();
+
+                            if (userResponse != null) {
+                                if (userResponse.getPassword().equals(editPassword.getText().toString())) {
+                                    Toast.makeText(MainActivity.this, "Logado com sucesso", Toast.LENGTH_LONG).show();
+
+                                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                                    startActivity(intent);
+                                    finish();
+
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Senha incorreta!", Toast.LENGTH_LONG).show();
+                                }
+                            } else {
+                                Toast.makeText(MainActivity.this, "Erro ao processar os dados!", Toast.LENGTH_LONG).show();
                             }
-                            else {
-                                // Mensagem de erro
-                                Toast.makeText(MainActivity.this, "FALHOU!!!!", Toast.LENGTH_LONG).show();
-                            }
+                        } else {
+                            // Se a resposta não for bem-sucedida (ex.: 404 ou outro erro)
+                            Toast.makeText(MainActivity.this, "E-mail não cadastrado!", Toast.LENGTH_LONG).show();
                         }
                     }
 
