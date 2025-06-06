@@ -1,0 +1,9 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"
+        android:title="Início" />
+    <item android:id="@+id/nav_vinhos"
+        android:title="Vinhos" />
+    <item android:id="@+id/nav_sair"
+        android:title="Sair" />
+</menu>
