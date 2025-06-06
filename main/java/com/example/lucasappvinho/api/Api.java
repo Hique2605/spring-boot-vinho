@@ -12,8 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Api {
 
-    public static final String URL_ROOT = "http://10.0.2.2:8080/";
+    //public static final String URL_ROOT = "http://10.0.2.2:8080/";  para rodar no emulador
 
+    //para rodar no celular
+    public static final String URL_ROOT = "http://192.168.1.106:8080/";
     private static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL_ROOT)
             .addConverterFactory(GsonConverterFactory.create())
