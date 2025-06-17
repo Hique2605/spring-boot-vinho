@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/creme"
+    android:padding="16dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+    />
+
+    <!-- Cabeçalho -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/vermelhoVinho"
+        android:paddingHorizontal="8dp">
+
+        <ImageButton
+            android:id="@+id/btnVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/voltar"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Contato"
+            android:textSize="20sp"
+            android:textColor="@color/creme"
+            android:gravity="center"
+            android:layout_marginRight="40dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Nome -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textColor="@color/vermelhoVinho"
+                android:textSize="16sp"
+                android:paddingBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/campo_busca_background"
+                android:paddingHorizontal="12dp"
+                android:hint="Digite seu nome"
+                android:textColor="@color/preto"
+                android:textSize="16sp"/>
+
+            <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/vermelhoVinho"
+                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/campo_busca_background"
+                android:paddingHorizontal="12dp"
+                android:hint="Digite seu email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/preto"
+                android:textSize="16sp"/>
+
+            <!-- Assunto -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assunto"
+                android:textColor="@color/vermelhoVinho"
+                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/editAssunto"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/campo_busca_background"
+                android:paddingHorizontal="12dp"
+                android:hint="Digite o assunto"
+                android:textColor="@color/preto"
+                android:textSize="16sp"/>
+
+            <!-- Mensagem -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mensagem"
+                android:textColor="@color/vermelhoVinho"
+                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/editMensagem"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/campo_busca_background"
+                android:paddingHorizontal="12dp"
+                android:hint="Digite sua mensagem"
+                android:gravity="top"
+                android:textColor="@color/preto"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:maxLines="6"/>
+
+            <!-- Botão Enviar -->
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Enviar"
+                android:textSize="18sp"
+                android:textColor="@color/creme"
+                android:background="@color/vermelhoVinho"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

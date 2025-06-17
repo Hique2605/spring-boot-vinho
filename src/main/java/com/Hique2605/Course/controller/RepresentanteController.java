@@ -24,6 +24,12 @@ public class RepresentanteController {
         return ResponseEntity.ok().body(list);
     }
 
+    @GetMapping(value = "/buscarPorEmail/{email}")
+    public ResponseEntity<Representante> findByEmail(@PathVariable String email){
+        Representante obj = service.findByEmail(email);
+        return ResponseEntity.ok().body(obj);
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<Representante> findById(@PathVariable Long id) {
         Representante obj = service.findById(id);

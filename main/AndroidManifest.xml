@@ -16,15 +16,23 @@
         android:theme="@style/Theme.AppVinho"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".View.MainActivity"
+            android:exported="true"
+            tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".View.HomeActivity"/>
+        <activity android:name=".View.User.TelaVinhosActivity" />
+        <activity android:name=".View.Admin.TelaVinhosAdminActivity" />
+        <activity android:name=".View.Admin.CadastroVinhoActivity" />
+        <activity android:name=".View.User.PedidosUsuarioActivity" />
+        <activity android:name=".View.FormularioContatoActivity" />
+        <activity android:name=".View.HistoriaActivity" />
+        <activity android:name=".View.Admin.PainelAdmActivity" />
     </application>
 
 </manifest>

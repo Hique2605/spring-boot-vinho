@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Corpo da caneta -->
+    <path
+        android:pathData="M3,17.25 L14.81,5.44 L18.56,9.19 L6.75,21 H3v-3.75z"
+        android:strokeColor="@color/creme"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Ponta da caneta -->
+    <path
+        android:pathData="M19.71,7.04c0.39-0.39,0.39-1.02 0-1.41l-2.34-2.34a1.003,1.003 0 0 0 -1.42,0L14.13,4.87l3.75,3.75L19.71,7.04z"
+        android:strokeColor="@color/creme"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+</vector>

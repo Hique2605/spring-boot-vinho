@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/creme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Botão Voltar -->
+        <ImageButton
+            android:id="@+id/btnVoltar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@drawable/voltar"
+            android:contentDescription="Voltar"
+            android:layout_gravity="start"
+            android:padding="5dp"/>
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nossa História"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/vermelhoVinho"
+            android:gravity="center"/>
+
+        <!-- Texto 1 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tudo começou nas colinas ensolaradas, onde tradição e paixão pelo vinho se encontraram. Desde o início, nossa missão sempre foi clara: transformar cada safra em uma experiência única, levando à sua taça o sabor da nossa terra."
+            android:textSize="16sp"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Imagem do Processo de Produção /////// colocar outra img -->
+        <ImageView
+            android:id="@+id/imgProcesso"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/vinicola"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Texto 2 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cada etapa é acompanhada de perto: desde a escolha das uvas até o repouso em barris de carvalho, combinando técnicas artesanais com inovação. Assim, garantimos qualidade e autenticidade em cada rótulo."
+            android:textSize="16sp"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@android:color/black"/>
+
+        <!-- Frase de impacto -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🍷 Mais que vinho, uma história em cada garrafa."
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:textColor="@color/vermelhoVinho"
+            android:gravity="center"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</ScrollView>

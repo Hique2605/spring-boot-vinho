@@ -1,16 +1,22 @@
 package com.example.lucasappvinho.api.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class User implements Serializable {
+public class Representante implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
+
     private UserType tipo;
-    private String name;
+    private String nome;
     private String email;
-    private String phone;
+    private String telefone;
     private String password;
+    private Double meta;
+
+    //precisa de private List<Order> pedidos = new ArrayList<>(); ????
 
     public Long getId() {
         return id;
@@ -28,12 +34,12 @@ public class User implements Serializable {
         this.tipo = tipo;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -44,12 +50,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getPassword() {
@@ -58,5 +64,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Double getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Double meta) {
+        this.meta = meta;
     }
 }

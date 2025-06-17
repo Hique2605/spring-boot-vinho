@@ -29,6 +29,11 @@ public class AdminService {
         Optional<Admin> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
+    //buscar por email
+    public Admin findByEmail(String email) {
+        Optional<Admin>	obj = repository.findByEmail(email);
+        return obj.orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + email));
+    }
 
     // Inserir novo admin
     public Admin insert(Admin obj) {

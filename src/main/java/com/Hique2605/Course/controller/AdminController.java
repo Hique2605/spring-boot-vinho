@@ -23,6 +23,12 @@ public class AdminController {
         return ResponseEntity.ok().body(list);
     }
 
+    @GetMapping(value = "/buscarPorEmail/{email}")
+    public ResponseEntity<Admin> findByEmail(@PathVariable String email){
+        Admin obj = service.findByEmail(email);
+        return ResponseEntity.ok().body(obj);
+    }
+
     // GET admin por ID
     @GetMapping(value = "/{id}")
     public ResponseEntity<Admin> findById(@PathVariable Long id) {

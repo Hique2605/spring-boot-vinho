@@ -5,14 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.Hique2605.Course.entities.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_user")
@@ -23,10 +19,14 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@Enumerated(EnumType.STRING)
+	private UserType tipo;
+
 	private String name;
 	private String email;
 	private String phone;
+	private String endereco;
 	private String password;
 	
 	//para nao entrar em loop no postman, via de mao dupla
@@ -38,12 +38,13 @@ public class User implements Serializable{
 		
 	}
 
-	public User(Long id, String name, String email, String phone, String password) {
-		super();
+	public User(Long id,UserType tipo, String name, String email, String phone, String endereco, String password) {
 		this.id = id;
+		this.tipo = tipo;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
+		this.endereco = endereco;
 		this.password = password;
 	}
 
@@ -53,6 +54,14 @@ public class User implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public UserType getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(UserType tipo) {
+		this.tipo = tipo;
 	}
 
 	public String getName() {
@@ -79,6 +88,14 @@ public class User implements Serializable{
 		this.phone = phone;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -90,6 +107,7 @@ public class User implements Serializable{
 	public List<Order> getOrders() {
 		return orders;
 	}
+
 
 	@Override
 	public boolean equals(Object o) {

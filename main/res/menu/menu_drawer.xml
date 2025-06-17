@@ -1,9 +1,43 @@
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_home"
-        android:title="Início" />
-    <item android:id="@+id/nav_vinhos"
-        android:title="Vinhos" />
-    <item android:id="@+id/nav_sair"
-        android:title="Sair" />
+
+    <group android:id="@+id/group_main">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Início" />
+
+        <item
+            android:id="@+id/nav_vinhos"
+            android:icon="@drawable/ic_wine"
+            android:title="Vinhos" />
+
+        <item
+            android:id="@+id/nav_pedidos"
+            android:icon="@drawable/ic_carrinho"
+            android:title="Pedidos" />
+
+        <item
+            android:id="@+id/nav_form"
+            android:icon="@drawable/ic_formulario"
+            android:title="Formulario" />
+
+        <item
+            android:id="@+id/nav_historia"
+            android:icon="@drawable/ic_historia"
+            android:title="História" />
+
+        <item
+            android:id="@+id/nav_adm"
+            android:icon="@drawable/ic_paineladm"
+            android:title="Painel Administrativo"
+            android:visibility="gone" />
+    </group>
+
+    <group android:id="@+id/group_secondary">
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_exit"
+            android:title="Sair" />
+    </group>
+
 </menu>

@@ -1,171 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/creme">
 
+    <!-- Topo -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:background="@color/vermelhoVinho"
-        android:layout_marginBottom="50dp">
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:elevation="4dp">
 
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/menu"/>
-
-        <TextView
+        <ImageButton
+            android:id="@+id/btnVoltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Painel de administração"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/creme"/>
+            android:background="@null"
+            android:src="@drawable/voltar"
+            android:layout_marginLeft="20dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Painel de Administração"
+            android:textSize="20sp"
+            android:textColor="@color/creme"
+            android:textStyle="bold"
+            android:gravity="center"/>
     </LinearLayout>
 
-    <LinearLayout
+    <!-- Seções do painel -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/creme"
-
-        android:layout_margin="60dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/fundo_admin"
-            android:padding="3dp">
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/wine"/>
+            <!-- ITEM PADRÃO (reutilizável) -->
+            <!-- VINHOS -->
+            <LinearLayout
+                android:id="@+id/btnVinhos"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fundo_admin"
+                android:paddingHorizontal="16dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vinhos"
-                android:textSize="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/creme"/>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/wine"
+                    android:contentDescription="Vinhos" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vinhos"
+                    android:textColor="@color/creme"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/fundo_admin"
-            android:layout_marginTop="20dp"
-            android:padding="3dp">
+            <!-- CLIENTES -->
+            <LinearLayout
+                android:id="@+id/btnClientes"
+                style="@style/AdminItemLayout"
+                android:background="@drawable/fundo_admin">
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/cliente"/>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/cliente"
+                    android:contentDescription="Clientes"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Clientes"
-                android:textSize="20dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/creme"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clientes"
+                    android:textColor="@color/creme"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
 
-        </LinearLayout>
+            <!-- REPRESENTANTES -->
+            <LinearLayout
+                android:id="@+id/btnRepresentantes"
+                style="@style/AdminItemLayout"
+                android:background="@drawable/fundo_admin">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/fundo_admin"
-            android:layout_marginTop="20dp"
-            android:padding="3dp">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/representante"
+                    android:contentDescription="Representantes"/>
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/representante"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Representantes"
+                    android:textColor="@color/creme"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Representantes"
-                android:textSize="20dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/creme"/>
+            <!-- PEDIDOS -->
+            <LinearLayout
+                android:id="@+id/btnPedidos"
+                style="@style/AdminItemLayout"
+                android:background="@drawable/fundo_admin">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/pedidos"
+                    android:contentDescription="Pedidos"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/fundo_admin"
-            android:layout_marginTop="20dp"
-            android:padding="3dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pedidos"
+                    android:textColor="@color/creme"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/pedidos"/>
+            <!-- RELATÓRIOS -->
+            <LinearLayout
+                android:id="@+id/btnRelatorios"
+                style="@style/AdminItemLayout"
+                android:background="@drawable/fundo_admin">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pedidos"
-                android:textSize="20dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/creme"/>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/relatorio"
+                    android:contentDescription="Relatórios"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/fundo_admin"
-            android:layout_marginTop="20dp"
-            android:padding="3dp">
-
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/relatorio"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Relatórios"
-                android:textSize="20dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/creme"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Relatórios"
+                    android:textColor="@color/creme"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

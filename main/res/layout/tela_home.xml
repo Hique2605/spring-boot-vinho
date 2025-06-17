@@ -18,7 +18,8 @@
             android:layout_height="70dp"
             android:orientation="horizontal"
             android:background="@color/vermelhoVinho"
-            android:layout_marginBottom="50dp">
+            android:layout_marginBottom="50dp"
+            android:paddingTop="8dp">
 
             <ImageButton
                 android:id="@+id/menuButton"
@@ -39,13 +40,26 @@
                 android:textColor="@color/creme"
                 android:gravity="center"/>
 
-            <Button
+            <!-- Botão Painel ADM (inicialmente oculto) -->
+            <ImageButton
+                android:id="@+id/menuPainelButton"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/wine"/>
+                android:background="@drawable/ic_paineladm"
+                android:visibility="gone" />
+
+            <!-- Botão Vinhos (visível por padrão) -->
+            <ImageButton
+                android:id="@+id/menuWineButton"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/wine" />
         </LinearLayout>
 
         <ImageView
@@ -58,32 +72,54 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/fundopainel"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_margin="30dp"
-            android:weightSum="100">
+            android:background="@drawable/fundopainel">
 
+            <!-- Título -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nossa História"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp" />
+
+            <!-- Container com texto e imagem lado a lado -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:padding="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descrição da pagina inicial"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"/>
+                <!-- Texto -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec."
+                        android:layout_margin="10dp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Imagem -->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:src="@drawable/vinicola"
+                    android:scaleType="fitXY" />
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:src="@drawable/baixo"
-                android:scaleType="fitXY"/>
         </LinearLayout>
 
         <TextView
@@ -94,18 +130,7 @@
             android:layout_marginLeft="110dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- LISTA ANTIGA , LUCAS-->
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="16dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/campo_lista"/>
-
-
-        <!-- LISTA NOVA GPT TESTE
+        <!-- LISTA NOVA recyclerview TESTE-->
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -116,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
-        -->
+
     </LinearLayout>
 
     <!-- Menu lateral -->

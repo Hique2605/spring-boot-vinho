@@ -1,26 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp">
+    android:padding="12dp"
+    android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/textWineName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome do vinho"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+    <!-- Imagem do vinho -->
+    <ImageView
+        android:id="@+id/imageWine"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="Imagem do vinho" />
 
-    <TextView
-        android:id="@+id/textWineType"
-        android:layout_width="wrap_content"
+    <!-- Informações do vinho -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Tipo do vinho"/>
+        android:layout_weight="1"
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/textWinePrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Preço"/>
+        <TextView
+            android:id="@+id/textWineName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do vinho"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/textWineType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo do vinho"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/textWinePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preço"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
 </LinearLayout>

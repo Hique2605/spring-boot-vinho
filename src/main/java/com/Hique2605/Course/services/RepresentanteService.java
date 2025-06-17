@@ -29,6 +29,12 @@ public class RepresentanteService {
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
+    //buscar por email
+    public Representante findByEmail(String email) {
+        Optional<Representante>	obj = repository.findByEmail(email);
+        return obj.orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + email));
+    }
+
     public Representante insert(Representante obj) {
         return repository.save(obj);
     }
@@ -62,7 +68,7 @@ public class RepresentanteService {
         if (obj.getNome() != null) entity.setNome(obj.getNome());
         if (obj.getEmail() != null) entity.setEmail(obj.getEmail());
         if (obj.getTelefone() != null) entity.setTelefone(obj.getTelefone());
-        if (obj.getSenha() != null) entity.setSenha(obj.getSenha());
+        if (obj.getPassword() != null) entity.setPassword(obj.getPassword());
         if (obj.getMeta() != null) entity.setMeta(obj.getMeta());
     }
 

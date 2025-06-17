@@ -13,6 +13,7 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/tvTituloCadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -23,6 +24,7 @@
             android:textColor="@color/vermelhoVinho"/>
 
         <EditText
+            android:id="@+id/editNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome do Vinho"
@@ -31,6 +33,7 @@
             android:inputType="text" />
 
         <EditText
+            android:id="@+id/editSafra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Safra (Ex.: 2018)"
@@ -40,6 +43,7 @@
             android:inputType="number" />
 
         <EditText
+            android:id="@+id/editTipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tipo (Tinto, Branco, Rosé...)"
@@ -49,6 +53,7 @@
             android:inputType="text" />
 
         <EditText
+            android:id="@+id/editUva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Uva usada (exp: Merlot)"
@@ -58,6 +63,7 @@
             android:inputType="text" />
 
         <EditText
+            android:id="@+id/editTeorAlcoolico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Teor alcoólico"
@@ -67,6 +73,7 @@
             android:inputType="text" />
 
         <EditText
+            android:id="@+id/editVolume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Volume da garrafa"
@@ -76,6 +83,7 @@
             android:inputType="text" />
 
         <EditText
+            android:id="@+id/editNotasDegustacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Notas de Degustação"
@@ -87,6 +95,7 @@
             android:maxLines="5" />
 
         <EditText
+            android:id="@+id/editHarmonizacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Harmonizações"
@@ -98,6 +107,7 @@
             android:maxLines="4" />
 
         <EditText
+            android:id="@+id/editPreco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Preço unitário"
@@ -107,6 +117,7 @@
             android:inputType="number" />
 
         <Button
+            android:id="@+id/btnSelecionarImagem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Selecionar Imagem"
@@ -114,6 +125,7 @@
             android:background="@drawable/btnlogar"/>
 
         <ImageView
+            android:id="@+id/imagePreview"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
@@ -129,6 +141,7 @@
             android:gravity="end">
 
             <Button
+                android:id="@+id/btnGravar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="130dp"
@@ -136,12 +149,12 @@
                 android:background="@drawable/btnlogar"/>
 
             <Button
+                android:id="@+id/btnVoltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VOLTAR"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/btnlogar"/>
-
         </LinearLayout>
 
     </LinearLayout>

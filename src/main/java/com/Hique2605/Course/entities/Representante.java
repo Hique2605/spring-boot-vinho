@@ -1,5 +1,6 @@
 package com.Hique2605.Course.entities;
 
+import com.Hique2605.Course.entities.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -16,10 +17,17 @@ public class Representante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    private UserType tipo;
+
     private String nome;
+
+    @Column(unique = true)
+    private String cpf;
+
     private String email;
     private String telefone;
-    private String senha;
+    private String password;
 
     private Double meta;
 
@@ -29,12 +37,14 @@ public class Representante {
 
     public Representante() {}
 
-    public Representante(Long id, String nome, String email, String telefone, String senha, Double meta) {
+    public Representante(Long id, UserType tipo, String nome, String cpf, String email, String telefone, String password, Double meta) {
         this.id = id;
+        this.tipo = tipo;
         this.nome = nome;
+        this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
-        this.senha = senha;
+        this.password = password;
         this.meta = meta;
     }
 
@@ -46,12 +56,28 @@ public class Representante {
         this.id = id;
     }
 
+    public UserType getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(UserType tipo) {
+        this.tipo = tipo;
+    }
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -70,12 +96,12 @@ public class Representante {
         this.telefone = telefone;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Double getMeta() {
