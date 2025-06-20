@@ -107,14 +107,41 @@
             android:maxLines="4" />
 
         <EditText
-            android:id="@+id/editPreco"
+            android:id="@+id/editPrecoUnitario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Preço unitário"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editimgUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="imgUrl"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="textLongMessage" />
+
+        <EditText
+            android:id="@+id/editQuantidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantidade"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
             android:inputType="number" />
+
+        <Switch
+            android:id="@+id/switchEmEstoque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Em estoque"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/btnSelecionarImagem"

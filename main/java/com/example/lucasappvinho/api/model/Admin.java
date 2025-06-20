@@ -1,5 +1,7 @@
 package com.example.lucasappvinho.api.model;
 
+import com.example.lucasappvinho.api.model.Enums.UserType;
+
 import java.io.Serializable;
 
 public class Admin implements Serializable {

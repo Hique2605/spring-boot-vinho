@@ -12,6 +12,10 @@ import retrofit2.http.Path;
 
 public interface UserEndpoint {
 
+    @GET("users")
+    Call<List<User>> getAllUsers();
+
+
     @GET("users/buscarPorEmail/{email}")
     Call<User> findByEmail(@Path("email") String email);
 

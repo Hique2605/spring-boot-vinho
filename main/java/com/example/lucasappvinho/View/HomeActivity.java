@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lucasappvinho.Sessao;
 import com.example.lucasappvinho.R;
 import com.example.lucasappvinho.View.Admin.PainelAdmActivity;
-import com.example.lucasappvinho.View.User.PedidosUsuarioActivity;
-import com.example.lucasappvinho.View.User.TelaVinhosActivity;
+import com.example.lucasappvinho.View.User.UserPedidosActivity;
 import com.example.lucasappvinho.adapter.WineAdapter;
 import com.example.lucasappvinho.api.Api;
 import com.example.lucasappvinho.api.model.Vinho;
@@ -36,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
     private ImageButton menuButton;
     private ImageButton menuWineButton;
     private ImageButton menuPainelButton;
+    private ImageButton PedidoButton;
     private NavigationView navigationView;
 
     private RecyclerView recyclerView;
@@ -51,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
         menuPainelButton = findViewById(R.id.menuPainelButton);
         navigationView = findViewById(R.id.navigationView);
         recyclerView = findViewById(R.id.recyclerView);
+        PedidoButton = findViewById(R.id.menuPedido);
+
 
         configurarMenuPorTipoUsuario();
 
@@ -68,6 +70,11 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        PedidoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, PedidosActivity.class);
+            startActivity(intent);
+        });
+
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
 
@@ -76,7 +83,9 @@ public class HomeActivity extends AppCompatActivity {
             } else if (id == R.id.nav_vinhos) {
                 startActivity(new Intent(this, TelaVinhosActivity.class));
             } else if (id == R.id.nav_pedidos) {
-                startActivity(new Intent(this, PedidosUsuarioActivity.class));
+                startActivity(new Intent(this, PedidosActivity.class));
+            }else if (id == R.id.nav_meus_pedidos) {
+                    startActivity(new Intent(this, UserPedidosActivity.class));
             } else if (id == R.id.nav_form) {
                 startActivity(new Intent(this, FormularioContatoActivity.class));
             } else if (id == R.id.nav_historia) {
@@ -121,19 +130,31 @@ public class HomeActivity extends AppCompatActivity {
         // Acessar menu da NavigationView
         Menu menu = navigationView.getMenu();
         MenuItem menuAdm = menu.findItem(R.id.nav_adm);
+        MenuItem menupedidos = menu.findItem(R.id.nav_pedidos);
+        MenuItem menumeuspedidos = menu.findItem(R.id.nav_meus_pedidos);
+        MenuItem menuWine = menu.findItem(R.id.nav_vinhos);
 
         if (isAdmin) {
             menuPainelButton.setVisibility(View.VISIBLE);
             menuWineButton.setVisibility(View.GONE);
+
+            menupedidos.setVisible(false);// Oculta item "PEDIDOS"
+            menumeuspedidos.setVisible(false); // Oculta item "MEUS PEDIDOS"
             menuAdm.setVisible(true); // Mostra item "Painel Administrativo"
+            menuWine.setVisible(false);// Oculta item "vinhos"  em menu
 
         } else if (isUser) {
             menuPainelButton.setVisibility(View.GONE);
             menuWineButton.setVisibility(View.VISIBLE);
+
             menuAdm.setVisible(false); // Oculta item "Painel Administrativo"
+            menupedidos.setVisible(false);// Oculta item "PEDIDOS"
         } else {
             menuPainelButton.setVisibility(View.GONE);
-            menuWineButton.setVisibility(View.VISIBLE);
+            menuWineButton.setVisibility(View.GONE);
+            PedidoButton.setVisibility(View.VISIBLE);
+
+            menumeuspedidos.setVisible(false); // Oculta item "MEUS PEDIDOS"
             menuAdm.setVisible(false); // Oculta item "Painel Administrativo"
         }
     }

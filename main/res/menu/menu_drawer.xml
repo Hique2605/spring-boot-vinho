@@ -17,6 +17,11 @@
             android:title="Pedidos" />
 
         <item
+            android:id="@+id/nav_meus_pedidos"
+            android:icon="@drawable/ic_carrinho"
+            android:title="Meus Pedidos" />
+
+        <item
             android:id="@+id/nav_form"
             android:icon="@drawable/ic_formulario"
             android:title="Formulario" />

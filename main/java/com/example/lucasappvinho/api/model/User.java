@@ -1,6 +1,10 @@
 package com.example.lucasappvinho.api.model;
 
+import com.example.lucasappvinho.api.model.Enums.UserType;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -10,7 +14,10 @@ public class User implements Serializable {
     private String name;
     private String email;
     private String phone;
+    private String endereco;
     private String password;
+
+    private List<Order> orders = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -50,6 +57,14 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getPassword() {

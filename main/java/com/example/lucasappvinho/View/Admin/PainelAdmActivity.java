@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lucasappvinho.R;
 import com.example.lucasappvinho.View.HomeActivity;
+import com.example.lucasappvinho.View.PedidosActivity;
+import com.example.lucasappvinho.View.TelaVinhosActivity;
 
 public class PainelAdmActivity extends AppCompatActivity {
 
@@ -46,7 +48,7 @@ public class PainelAdmActivity extends AppCompatActivity {
         btnVinhos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PainelAdmActivity.this, TelaVinhosAdminActivity.class);
+                Intent intent = new Intent(PainelAdmActivity.this, TelaVinhosActivity.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +68,7 @@ public class PainelAdmActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+         */
         btnPedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +76,7 @@ public class PainelAdmActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+/*
         btnRelatorios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

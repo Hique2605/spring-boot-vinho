@@ -1,5 +1,7 @@
 package com.example.lucasappvinho.api.model;
 
+import com.example.lucasappvinho.api.model.Enums.UserType;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +13,13 @@ public class Representante implements Serializable {
 
     private UserType tipo;
     private String nome;
+    private String cpf;
     private String email;
     private String telefone;
     private String password;
     private Double meta;
 
-    //precisa de private List<Order> pedidos = new ArrayList<>(); ????
+    private List<Order> pedidos = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -40,6 +43,14 @@ public class Representante implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {

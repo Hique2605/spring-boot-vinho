@@ -54,9 +54,10 @@ public class WineAdapter extends RecyclerView.Adapter<WineAdapter.WineViewHolder
                 .error(R.drawable.error)              // imagem de erro se falhar
                 .into(holder.imageWine);
     }
-
     @Override
     public int getItemCount() {
         return wineList.size();
     }
+
+
 }

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     Admin admin = response.body();
                     if (admin.getPassword() != null && admin.getPassword().equals(editPassword.getText().toString())) {
                         Sessao.tipoUsuario = "admin";
+                        Sessao.idUsuarioLogado = admin.getId();  //  Salva o ID do Admin logado
                         Toast.makeText(MainActivity.this, "Login como ADMIN", Toast.LENGTH_LONG).show();
                         abrirHome();
                     } else {
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     Representante representante = response.body();
                     if (representante.getPassword() != null && representante.getPassword().equals(editPassword.getText().toString())) {
                         Sessao.tipoUsuario = "representante";
+                        Sessao.idUsuarioLogado = representante.getId();  //  Salva o ID do Representante logado
                         Toast.makeText(MainActivity.this, "Login como REPRESENTANTE", Toast.LENGTH_LONG).show();
                         abrirHome();
                     } else {
@@ -110,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     User user = response.body();
                     if (user.getPassword() != null && user.getPassword().equals(editPassword.getText().toString())) {
                         Sessao.tipoUsuario = "user";
+                        Sessao.idUsuarioLogado = user.getId();  // Salva o ID do User logado
                         Toast.makeText(MainActivity.this, "Login como USER", Toast.LENGTH_LONG).show();
                         abrirHome();
                     } else {
@@ -126,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     private void abrirHome() {
         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
         startActivity(intent);

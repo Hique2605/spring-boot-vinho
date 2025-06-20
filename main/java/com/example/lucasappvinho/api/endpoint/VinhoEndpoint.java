@@ -14,7 +14,7 @@ public interface VinhoEndpoint {
     @GET("/vinhos")
     Call<List<Vinho>> getAllWines();
 
-
-
+    @POST("vinhos")
+    Call<Void> salvarVinho(@Body Vinho vinho);
 
 }
