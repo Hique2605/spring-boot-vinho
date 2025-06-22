@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/creme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvTituloAtualizacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="ATUALIZAR VINHO"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/vermelhoVinho"/>
+        <EditText
+            android:id="@+id/editIdBusca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID do Vinho"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Vinho"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnlogar"/>
+        <!-- Os mesmos campos de edição -->
+        <EditText
+            android:id="@+id/editNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome do Vinho"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editSafra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Safra (Ex.: 2018)"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo (Tinto, Branco, Rosé...)"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editUva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Uva usada (exp: Merlot)"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTeorAlcoolico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teor alcoólico"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editVolume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Volume da garrafa"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editNotasDegustacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notas de Degustação"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:maxLines="5" />
+
+        <EditText
+            android:id="@+id/editHarmonizacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Harmonizações"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:maxLines="4" />
+
+        <EditText
+            android:id="@+id/editPrecoUnitario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Preço unitário"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editimgUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="imgUrl"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="textLongMessage" />
+
+        <EditText
+            android:id="@+id/editQuantidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantidade"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:inputType="number" />
+
+        <Switch
+            android:id="@+id/switchEmEstoque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Em estoque"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnSelecionarImagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecionar Nova Imagem"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnlogar"/>
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF" />
+
+        <!-- Botões -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnAtualizar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="130dp"
+                android:text="ATUALIZAR"
+                android:background="@drawable/btnlogar"/>
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voltar"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btnlogar"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

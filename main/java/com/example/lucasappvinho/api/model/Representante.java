@@ -10,7 +10,6 @@ public class Representante implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-
     private UserType tipo;
     private String nome;
     private String cpf;
@@ -20,6 +19,23 @@ public class Representante implements Serializable {
     private Double meta;
 
     private List<Order> pedidos = new ArrayList<>();
+
+    public Representante() {}
+
+    // Construtor com parâmetros - importante para o envio correto
+    public Representante(Long id, UserType tipo, String nome, String cpf, String email,
+                         String telefone, String password, Double meta) {
+        this.id = id;
+        this.tipo = tipo;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.password = password;
+        this.meta = meta;
+    }
+
+    // Getters e Setters para todos os campos
 
     public Long getId() {
         return id;

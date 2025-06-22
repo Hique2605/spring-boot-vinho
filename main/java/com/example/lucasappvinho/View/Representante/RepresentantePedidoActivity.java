@@ -1,10 +1,8 @@
 package com.example.lucasappvinho.View.Representante;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,16 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lucasappvinho.R;
 import com.example.lucasappvinho.Sessao;
-import com.example.lucasappvinho.View.HomeActivity;
 import com.example.lucasappvinho.View.PedidosActivity;
-import com.example.lucasappvinho.View.TelaVinhosActivity;
-import com.example.lucasappvinho.api.Api;
 import com.example.lucasappvinho.adapter.OrderItemAdapter;
+import com.example.lucasappvinho.api.Api;
 import com.example.lucasappvinho.api.model.Order;
 import com.example.lucasappvinho.api.model.OrderItem;
 import com.example.lucasappvinho.api.model.Representante;
 import com.example.lucasappvinho.api.model.User;
 import com.example.lucasappvinho.api.model.Vinho;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +49,7 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_novo_pedido);  // Nome do layout XML que criamos antes
+        setContentView(R.layout.tela_novo_pedido);
 
         spinnerClientes = findViewById(R.id.spinnerClientes);
         spinnerVinhos = findViewById(R.id.spinnerVinhos);
@@ -72,14 +69,12 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
         btnAdicionarItem.setOnClickListener(v -> adicionarItem());
         btnSalvarPedido.setOnClickListener(v -> salvarPedido());
 
-        // Botão de voltar para home
         btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltar.setOnClickListener(view -> {
             Intent intent = new Intent(RepresentantePedidoActivity.this, PedidosActivity.class);
             startActivity(intent);
             finish();
         });
-
     }
 
     private void carregarClientes() {
@@ -130,11 +125,14 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
 
     private void adicionarItem() {
         int posVinho = spinnerVinhos.getSelectedItemPosition();
-        if (posVinho >= 0 && posVinho < listaVinhos.size()) {
+        String quantidadeStr = editQuantidade.getText().toString().trim();
+        String precoStr = editPreco.getText().toString().trim();
+
+        if (posVinho >= 0 && posVinho < listaVinhos.size() && !quantidadeStr.isEmpty() && !precoStr.isEmpty()) {
             Vinho vinhoSelecionado = listaVinhos.get(posVinho);
 
-            int quantidade = Integer.parseInt(editQuantidade.getText().toString());
-            double preco = Double.parseDouble(editPreco.getText().toString());
+            int quantidade = Integer.parseInt(quantidadeStr);
+            double preco = Double.parseDouble(precoStr);
 
             OrderItem item = new OrderItem();
             item.setVinho(vinhoSelecionado);
@@ -146,6 +144,8 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
 
             editQuantidade.setText("");
             editPreco.setText("");
+        } else {
+            Toast.makeText(this, "Preencha os campos de quantidade e preço", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -156,17 +156,30 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
             return;
         }
 
+        if (Sessao.idUsuarioLogado == null) {
+            Toast.makeText(this, "Erro: Usuário não logado.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (itensPedido.isEmpty()) {
+            Toast.makeText(this, "Adicione ao menos um item ao pedido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         User clienteSelecionado = listaClientes.get(posCliente);
 
         Order novoPedido = new Order();
         novoPedido.setClient(clienteSelecionado);
 
-        // Monta o objeto Representante
         Representante representante = new Representante();
-        representante.setId((long) Sessao.idUsuarioLogado);
+        representante.setId(Sessao.idUsuarioLogado);
         novoPedido.setRepresentante(representante);
 
+        novoPedido.setOrderStatus("WAITING_PAYMENT");
         novoPedido.setItems(itensPedido);
+
+        // ✅ Log do JSON antes de enviar
+        Log.d("API-JSON", new Gson().toJson(novoPedido));
 
         Api.getOrderEndpoint().criarPedido(novoPedido).enqueue(new Callback<Order>() {
             @Override
@@ -175,7 +188,7 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
                     Toast.makeText(RepresentantePedidoActivity.this, "Pedido criado com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(RepresentantePedidoActivity.this, "Erro ao criar pedido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RepresentantePedidoActivity.this, "Erro ao criar pedido: " + response.code(), Toast.LENGTH_SHORT).show();
                     Log.e("API", "Erro: " + response.code());
                 }
             }
@@ -183,8 +196,8 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Order> call, Throwable t) {
                 Toast.makeText(RepresentantePedidoActivity.this, "Falha na conexão", Toast.LENGTH_SHORT).show();
+                Log.e("API", "Falha: ", t);
             }
         });
     }
 }
-

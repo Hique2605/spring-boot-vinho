@@ -23,72 +23,53 @@
             android:textColor="@color/vermelhoVinho"/>
 
         <EditText
+            android:id="@+id/editTextNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="textPersonName" />
 
         <EditText
+            android:id="@+id/editTextSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:hint="Senha"
             android:background="@android:drawable/editbox_background"
-            android:hint="Senha para login"
-            android:inputType="text"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:inputType="textPassword" />
 
         <EditText
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="number" />
+            android:inputType="textEmailAddress" />
 
         <EditText
+            android:id="@+id/editTextTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número de contato"
+            android:hint="Telefone"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="phone" />
 
         <EditText
+            android:id="@+id/editTextEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CPF"
+            android:hint="Endereço"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CNPJ"
-            android:layout_marginTop="10dp"
-            android:background="@android:drawable/editbox_background"
-            android:padding="10dp"
-            android:inputType="text" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Imagem (Cliente ou logo empresa)"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btnlogar"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="10dp"
-            android:background="#FFFFFF" />
-
+            android:inputType="textPostalAddress" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,21 +79,20 @@
             android:gravity="end">
 
             <Button
+                android:id="@+id/btnGravar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="130dp"
+                android:layout_marginRight="20dp"
                 android:text="GRAVAR"
                 android:background="@drawable/btnlogar"/>
 
             <Button
+                android:id="@+id/btnVoltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VOLTAR"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/btnlogar"/>
-
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>

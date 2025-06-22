@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/creme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editIdBusca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID do Representante"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Representante"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnlogar"
+            />
+
+        <EditText
+            android:id="@+id/editIdRepresentante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID do Representante"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/editNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/editContato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contato (e-mail)"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/editTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefone"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnAtualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Atualizar"
+            android:background="@drawable/btnlogar"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:background="@drawable/btnlogar"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</ScrollView>

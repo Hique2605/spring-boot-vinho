@@ -57,7 +57,7 @@ public class TestConfig implements CommandLineRunner {
 		vinhoRepository.saveAll(Arrays.asList(v1, v2, v3, v4, v5, v6,v7));
 
 		//cria admin
-		Admin adm01 = new Admin(null,UserType.ADM,"Hique","hique@gmail.com","99885625","555");
+		Admin adm01 = new Admin(null,UserType.fromString("ADMIN"),"Hique","hique@gmail.com","99885625","555");
 		adminRepository.saveAll(Arrays.asList(adm01));
 
 

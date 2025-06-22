@@ -74,13 +74,37 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
     <ImageButton
-        android:id="@+id/btnAddViho"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circulo_vermelho"
-        android:src="@drawable/mais"
-        android:layout_margin="16dp"/>
+    android:id="@+id/btnAddViho"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:background="@drawable/circulo_vermelho"
+    android:src="@drawable/mais"
+    android:layout_margin="16dp"/>
+
+        <ImageButton
+            android:id="@+id/btnEditViho"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circulo_vermelho"
+            android:src="@drawable/update"
+            android:layout_margin="16dp"/>
+
+        <ImageButton
+            android:id="@+id/btnDeleteViho"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circulo_vermelho"
+            android:src="@drawable/delete"
+            android:layout_margin="16dp"/>
+
+
+   </LinearLayout>
 
     <!-- LISTA NOVA recyclerview TESTE-->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

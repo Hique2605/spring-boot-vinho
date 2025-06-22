@@ -10,45 +10,48 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Botão voltar -->
         <ImageButton
             android:id="@+id/btnVoltar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:src="@drawable/sair" />
+            android:src="@drawable/sair"
+            android:contentDescription="Voltar" />
 
-        <!-- Seção: Selecionar Cliente -->
+        <!-- Selecionar Cliente -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Selecionar Cliente:"
             android:textSize="16sp"
             android:textColor="@color/preto"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
         <Spinner
             android:id="@+id/spinnerClientes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/campo_busca_background"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
-        <!-- Seção: Selecionar Vinho -->
+        <!-- Selecionar Vinho -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Selecionar Vinho:"
             android:textSize="16sp"
             android:textColor="@color/preto"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
         <Spinner
             android:id="@+id/spinnerVinhos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/campo_busca_background"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
         <!-- Quantidade -->
         <TextView
@@ -57,8 +60,8 @@
             android:text="Quantidade:"
             android:textSize="16sp"
             android:textColor="@color/preto"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
         <EditText
             android:id="@+id/editQuantidade"
@@ -67,28 +70,28 @@
             android:hint="Ex: 10"
             android:inputType="number"
             android:background="@drawable/campo_busca_background"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
-        <!-- Preço Unitário (opcional, pode vir automático) -->
+        <!-- Preço Unitário (opcional) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preço Unitário:"
+            android:text="Preço Unitário (opcional):"
             android:textSize="16sp"
             android:textColor="@color/preto"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp" />
 
         <EditText
             android:id="@+id/editPreco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ex: 29.90"
+            android:hint="Será preenchido automaticamente (opcional)"
             android:inputType="numberDecimal"
             android:background="@drawable/campo_busca_background"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
-        <!-- Botão: Adicionar ao Pedido -->
+        <!-- Botão Adicionar Item -->
         <Button
             android:id="@+id/btnAdicionarItem"
             android:layout_width="match_parent"
@@ -96,26 +99,26 @@
             android:text="Adicionar Item ao Pedido"
             android:background="@color/vermelhoVinho"
             android:textColor="@color/creme"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="24dp" />
 
-        <!-- Lista de Itens do Pedido -->
+        <!-- Itens do Pedido -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Itens do Pedido:"
             android:textSize="16sp"
             android:textColor="@color/preto"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewItens"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/campo_lista"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
-        <!-- Botão: Salvar Pedido -->
+        <!-- Botão Salvar Pedido -->
         <Button
             android:id="@+id/btnSalvarPedido"
             android:layout_width="match_parent"
@@ -123,7 +126,8 @@
             android:text="Salvar Pedido"
             android:background="@color/vermelhoVinho"
             android:textColor="@color/creme"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
 
     </LinearLayout>
 </ScrollView>

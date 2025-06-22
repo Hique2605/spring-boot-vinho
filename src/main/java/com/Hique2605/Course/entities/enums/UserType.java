@@ -1,8 +1,14 @@
 package com.Hique2605.Course.entities.enums;
 
-public enum UserType {
+import com.fasterxml.jackson.annotation.JsonCreator;
 
-        ADM,
+public enum UserType {
         USER,
-        REPRESENTANTE
+        ADMIN,
+        REPRESENTANTE;
+
+        @JsonCreator
+        public static UserType fromString(String key) {
+                return key == null ? null : UserType.valueOf(key.toUpperCase());
+        }
 }

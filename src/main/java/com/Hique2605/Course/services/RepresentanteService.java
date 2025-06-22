@@ -1,6 +1,7 @@
 package com.Hique2605.Course.services;
 
 import com.Hique2605.Course.entities.Representante;
+import com.Hique2605.Course.entities.Vinho;
 import com.Hique2605.Course.repositories.RepresentanteRepository;
 import com.Hique2605.Course.services.exceptions.DatabaseException;
 import com.Hique2605.Course.services.exceptions.ResourceNotFoundException;

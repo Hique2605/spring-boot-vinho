@@ -22,73 +22,72 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/vermelhoVinho"/>
 
+        <!-- NOME -->
         <EditText
+            android:id="@+id/editTextNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="textPersonName" />
 
+        <!-- SENHA -->
         <EditText
+            android:id="@+id/editTextSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="number" />
+            android:inputType="textPassword" />
 
+        <!-- TELEFONE -->
         <EditText
+            android:id="@+id/editTextTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número para contato"
+            android:hint="Telefone"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="phone" />
 
+        <!-- EMAIL -->
         <EditText
+            android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-mail"
+            android:hint="Email"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="textEmailAddress" />
 
+        <!-- META -->
         <EditText
+            android:id="@+id/editTextMeta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Meta mensal"
+            android:hint="Meta Mensal (R$)"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
 
+        <!-- CPF -->
         <EditText
+            android:id="@+id/editTextCPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CPF"
             android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="number" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Foto"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btnlogar"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="10dp"
-            android:background="#FFFFFF" />
-
+        <!-- BOTÕES -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,6 +96,7 @@
             android:gravity="end">
 
             <Button
+                android:id="@+id/btnGravar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="130dp"
@@ -104,12 +104,12 @@
                 android:background="@drawable/btnlogar"/>
 
             <Button
+                android:id="@+id/btnVoltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VOLTAR"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/btnlogar"/>
-
         </LinearLayout>
 
     </LinearLayout>

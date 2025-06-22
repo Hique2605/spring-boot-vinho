@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lucasappvinho.Sessao;
 import com.example.lucasappvinho.R;
+import com.example.lucasappvinho.View.Admin.ListaClientesActivity;
 import com.example.lucasappvinho.View.Admin.PainelAdmActivity;
 import com.example.lucasappvinho.View.User.UserPedidosActivity;
 import com.example.lucasappvinho.adapter.WineAdapter;
@@ -84,6 +85,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(this, TelaVinhosActivity.class));
             } else if (id == R.id.nav_pedidos) {
                 startActivity(new Intent(this, PedidosActivity.class));
+            } else if (id == R.id.nav_Clientes) {
+                startActivity(new Intent(this, ListaClientesActivity.class));
             }else if (id == R.id.nav_meus_pedidos) {
                     startActivity(new Intent(this, UserPedidosActivity.class));
             } else if (id == R.id.nav_form) {
@@ -133,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
         MenuItem menupedidos = menu.findItem(R.id.nav_pedidos);
         MenuItem menumeuspedidos = menu.findItem(R.id.nav_meus_pedidos);
         MenuItem menuWine = menu.findItem(R.id.nav_vinhos);
+        MenuItem menuClientes = menu.findItem(R.id.nav_Clientes);
 
         if (isAdmin) {
             menuPainelButton.setVisibility(View.VISIBLE);
@@ -142,6 +146,7 @@ public class HomeActivity extends AppCompatActivity {
             menumeuspedidos.setVisible(false); // Oculta item "MEUS PEDIDOS"
             menuAdm.setVisible(true); // Mostra item "Painel Administrativo"
             menuWine.setVisible(false);// Oculta item "vinhos"  em menu
+            menuClientes.setVisible(false);// Oculta item "clientes"
 
         } else if (isUser) {
             menuPainelButton.setVisibility(View.GONE);
@@ -149,6 +154,7 @@ public class HomeActivity extends AppCompatActivity {
 
             menuAdm.setVisible(false); // Oculta item "Painel Administrativo"
             menupedidos.setVisible(false);// Oculta item "PEDIDOS"
+            menuClientes.setVisible(false);// Oculta item "clientes"
         } else {
             menuPainelButton.setVisibility(View.GONE);
             menuWineButton.setVisibility(View.GONE);

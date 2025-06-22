@@ -1,16 +1,15 @@
 package com.Hique2605.Course.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.Hique2605.Course.entities.Order;
 import com.Hique2605.Course.services.OrderService;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "/orders")
@@ -45,9 +44,19 @@ public class OrderController {
 		return ResponseEntity.ok().body(list);
 	}
 
+	@PostMapping
+	public ResponseEntity<Order> insert(@RequestBody Order obj) {
+		obj = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).body(obj);
+	}
 
-	//fazer find findByRepresentanteId    E  Id do client ? exp seller id tal / do client tal idclient
-	//http://localhost:8080/orders/representante/3/users/1
+
+
+
+
+
 
 
 

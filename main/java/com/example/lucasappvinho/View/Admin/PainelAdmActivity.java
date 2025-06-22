@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.lucasappvinho.R;
 import com.example.lucasappvinho.View.HomeActivity;
 import com.example.lucasappvinho.View.PedidosActivity;
+import com.example.lucasappvinho.View.TelaRepresentantesActivity;
 import com.example.lucasappvinho.View.TelaVinhosActivity;
 
 public class PainelAdmActivity extends AppCompatActivity {
@@ -52,11 +53,11 @@ public class PainelAdmActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/*
+
         btnClientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PainelAdmActivity.this, .class);
+                Intent intent = new Intent(PainelAdmActivity.this, ListaClientesActivity.class);
                 startActivity(intent);
             }
         });
@@ -64,11 +65,11 @@ public class PainelAdmActivity extends AppCompatActivity {
         btnRepresentantes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PainelAdmActivity.this, RepresentantesActivity.class);
+                Intent intent = new Intent(PainelAdmActivity.this, TelaRepresentantesActivity.class);
                 startActivity(intent);
             }
         });
-         */
+
         btnPedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

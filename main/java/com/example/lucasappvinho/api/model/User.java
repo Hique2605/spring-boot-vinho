@@ -19,6 +19,15 @@ public class User implements Serializable {
 
     private List<Order> orders = new ArrayList<>();
 
+    public User(String name, String email, String phone, String endereco, String password) {
+        this.tipo = UserType.valueOf("USER"); // fixo
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.endereco = endereco;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }

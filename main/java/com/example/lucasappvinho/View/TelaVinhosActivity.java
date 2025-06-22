@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lucasappvinho.R;
 import com.example.lucasappvinho.Sessao;
 import com.example.lucasappvinho.View.Admin.CadastroVinhoActivity;
+import com.example.lucasappvinho.View.Admin.DeleteVinhoActivity;
 import com.example.lucasappvinho.View.Admin.PainelAdmActivity;
+import com.example.lucasappvinho.View.Admin.UpdateVinhoActivity;
 import com.example.lucasappvinho.adapter.WineAdapter;
 import com.example.lucasappvinho.api.Api;
 import com.example.lucasappvinho.api.model.Vinho;
@@ -27,11 +29,7 @@ import retrofit2.Response;
 
 public class TelaVinhosActivity extends AppCompatActivity {
 
-    private ImageButton btnVoltar;
-
-    private ImageButton btnVoltarOculto;
-
-     private ImageButton btnAddViho;
+    private ImageButton btnVoltar, btnVoltarOculto, btnAddViho, btnEditViho , btnDeleteViho;
 
 
     @Override
@@ -66,6 +64,28 @@ public class TelaVinhosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TelaVinhosActivity.this, CadastroVinhoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Botão de edit vinho
+        btnEditViho = findViewById(R.id.btnEditViho);
+
+        btnEditViho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TelaVinhosActivity.this, UpdateVinhoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Botão de delete vinho
+        btnDeleteViho = findViewById(R.id.btnDeleteViho);
+
+        btnDeleteViho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TelaVinhosActivity.this, DeleteVinhoActivity.class);
                 startActivity(intent);
             }
         });
@@ -106,6 +126,9 @@ public class TelaVinhosActivity extends AppCompatActivity {
         btnAddViho = findViewById(R.id.btnAddViho);
         btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltarOculto = findViewById(R.id.btnVoltarOculto);
+        btnEditViho = findViewById(R.id.btnEditViho);
+        btnDeleteViho = findViewById(R.id.btnDeleteViho);
+
 
         if (isAdmin) {
             btnAddViho.setVisibility(View.VISIBLE);
@@ -116,8 +139,12 @@ public class TelaVinhosActivity extends AppCompatActivity {
         } else if (isUser) {
 
             btnAddViho.setVisibility(View.GONE);// Oculta item "btn add"
+            btnEditViho.setVisibility(View.GONE);
+            btnDeleteViho.setVisibility(View.GONE);
         } else {
             btnAddViho.setVisibility(View.GONE);// Oculta item "btn add"
+            btnEditViho.setVisibility(View.GONE);
+            btnDeleteViho.setVisibility(View.GONE);
         }
 
     }

@@ -31,6 +31,14 @@
         <activity android:name=".View.Representante.RepresentantePedidoActivity"/>
         <activity android:name=".View.Admin.CadastroVinhoActivity" />
         <activity android:name=".View.Admin.PainelAdmActivity" />
+        <activity android:name=".View.Admin.CadastroClienteActivity" />
+        <activity android:name=".View.Admin.ListaClientesActivity" />
+        <activity android:name=".View.Admin.CadastroRepresentanteActivity" />
+        <activity android:name=".View.Admin.UpdateVinhoActivity" />
+        <activity android:name=".View.Admin.DeleteVinhoActivity" />
+        <activity android:name=".View.Admin.DeleteRepresentanteActivity" />
+        <activity android:name=".View.Admin.UpdateRepresentanteActivity" />
+        <activity android:name=".View.TelaRepresentantesActivity" />
         <activity android:name=".View.PedidosActivity" />
         <activity android:name=".View.FormularioContatoActivity" />
         <activity android:name=".View.HistoriaActivity" />
