@@ -67,10 +67,10 @@ public class OrderService {
 				.orElseThrow(() -> new ResourceNotFoundException(finalObj.getRepresentante().getId()));
 		obj.setRepresentante(representante);
 
-		// ✅ Setar a data e hora atual
+		//  Setar a data e hora atual
 		obj.setMoment(Instant.now());
 
-		// ✅ Processar os itens do pedido
+		//  Processar os itens do pedido
 		for (OrderItem item : obj.getItems()) {
 			// Buscar o vinho do item
 			Vinho vinho = vinhoRepository.findById(item.getVinho().getId())
@@ -86,18 +86,18 @@ public class OrderService {
 			item.setPrice(vinho.getPrecoUnitario());
 		}
 
-		// ✅ Se tiver pagamento, associar o pedido ao pagamento
+		//  Se tiver pagamento, associar o pedido ao pagamento
 		if (obj.getPayment() != null) {
 			obj.getPayment().setOrder(obj);
 		}
 
-		// ✅ Salvar o pedido principal
+		//  Salvar o pedido principal
 		obj = repository.save(obj);
 
-		// ✅ Salvar os itens (se não tiver Cascade nos itens)
+		//  Salvar os itens (se não tiver Cascade nos itens)
 		orderItemRepository.saveAll(obj.getItems());
 
-		// ✅ Retornar o pedido completo (com ID, moment, etc)
+		// Retornar o pedido completo (com ID, moment, etc)
 		return obj;
 	}
 

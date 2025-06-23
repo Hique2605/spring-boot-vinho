@@ -1,5 +1,6 @@
 package com.example.lucasappvinho.View.Admin;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class DeleteRepresentanteActivity extends AppCompatActivity {
     private Button btnDeletarRepresentante, btnCancelarRepresentante;
     private RepresentanteEndpoint representanteEndpoint;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
