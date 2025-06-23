@@ -117,7 +117,7 @@
             android:inputType="numberDecimal" />
 
         <EditText
-            android:id="@+id/editimgUrl"
+            android:id="@+id/editImgUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="imgUrl"
@@ -142,22 +142,6 @@
             android:layout_height="wrap_content"
             android:text="Em estoque"
             android:layout_marginTop="10dp"/>
-
-        <Button
-            android:id="@+id/btnSelecionarImagem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Selecionar Imagem"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btnlogar"/>
-
-        <ImageView
-            android:id="@+id/imagePreview"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginTop="10dp"
-            android:background="#FFFFFF" />
 
         <!-- Botões -->
         <LinearLayout

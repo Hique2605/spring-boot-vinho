@@ -38,6 +38,7 @@
         <activity android:name=".View.Admin.DeleteVinhoActivity" />
         <activity android:name=".View.Admin.DeleteRepresentanteActivity" />
         <activity android:name=".View.Admin.UpdateRepresentanteActivity" />
+        <activity android:name=".View.Admin.UpdateClienteActivity" />
         <activity android:name=".View.TelaRepresentantesActivity" />
         <activity android:name=".View.PedidosActivity" />
         <activity android:name=".View.FormularioContatoActivity" />

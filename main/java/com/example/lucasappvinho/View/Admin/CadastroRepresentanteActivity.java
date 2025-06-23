@@ -37,11 +37,12 @@ public class CadastroRepresentanteActivity extends AppCompatActivity {
 
     private void inicializarComponentes() {
         editTextNome = findViewById(R.id.editTextNome);
-        editTextSenha = findViewById(R.id.editTextSenha);
-        editTextTelefone = findViewById(R.id.editTextTelefone);
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextMeta = findViewById(R.id.editTextMeta);
         editTextCPF = findViewById(R.id.editTextCPF);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextTelefone = findViewById(R.id.editTextTelefone);
+        editTextSenha = findViewById(R.id.editTextSenha);
+        editTextMeta = findViewById(R.id.editTextMeta);
+
 
         btnGravar = findViewById(R.id.btnGravar);
         btnVoltar = findViewById(R.id.btnVoltar);
@@ -49,11 +50,12 @@ public class CadastroRepresentanteActivity extends AppCompatActivity {
 
     private void cadastrarRepresentante() {
         String nome = editTextNome.getText().toString().trim();
-        String senha = editTextSenha.getText().toString().trim();
-        String telefone = editTextTelefone.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String metaStr = editTextMeta.getText().toString().trim();
         String cpf = editTextCPF.getText().toString().trim();
+        String email = editTextEmail.getText().toString().trim();
+        String telefone = editTextTelefone.getText().toString().trim();
+        String senha = editTextSenha.getText().toString().trim();
+        String metaStr = editTextMeta.getText().toString().trim();
+
 
         if (nome.isEmpty() || senha.isEmpty() || telefone.isEmpty()
                 || email.isEmpty() || metaStr.isEmpty() || cpf.isEmpty()) {

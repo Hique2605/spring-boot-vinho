@@ -1,6 +1,7 @@
 package com.example.lucasappvinho.View.Admin;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,14 +22,14 @@ public class UpdateRepresentanteActivity extends AppCompatActivity {
     private EditText editId, editNome, editContato, editTelefone;
     private Button btnBuscar, btnAtualizar, btnCancelar;
 
+    private EditText editCpf, editSenha, editMeta;
     private RepresentanteEndpoint representanteEndpoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.update_representante); // certifique-se de ter esse XML
+        setContentView(R.layout.update_representante);
 
-        // Vincula os componentes da UI
         editId = findViewById(R.id.editIdRepresentante);
         editNome = findViewById(R.id.editNome);
         editContato = findViewById(R.id.editContato);
@@ -37,6 +38,10 @@ public class UpdateRepresentanteActivity extends AppCompatActivity {
         btnBuscar = findViewById(R.id.btnBuscar);
         btnAtualizar = findViewById(R.id.btnAtualizar);
         btnCancelar = findViewById(R.id.btnCancelar);
+
+        editCpf = findViewById(R.id.editCpf);
+        editSenha = findViewById(R.id.editSenha);
+        editMeta = findViewById(R.id.editMeta);
 
         representanteEndpoint = Api.getRepresentanteEndpoint();
 
@@ -52,30 +57,39 @@ public class UpdateRepresentanteActivity extends AppCompatActivity {
             return;
         }
 
-        Long id = Long.parseLong(idStr);
-        Call<Representante> call = representanteEndpoint.getById(id);
+        try {
+            Long id = Long.parseLong(idStr);
+            Call<Representante> call = representanteEndpoint.getById(id);
 
-        call.enqueue(new Callback<Representante>() {
-            @Override
-            public void onResponse(Call<Representante> call, Response<Representante> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    preencherCampos(response.body());
-                } else {
-                    Toast.makeText(UpdateRepresentanteActivity.this, "Representante não encontrado", Toast.LENGTH_SHORT).show();
+            call.enqueue(new Callback<Representante>() {
+                @Override
+                public void onResponse(Call<Representante> call, Response<Representante> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        preencherCampos(response.body());
+                    } else {
+                        Log.e("API", "Erro buscarRepresentante - code: " + response.code());
+                        Toast.makeText(UpdateRepresentanteActivity.this, "Representante não encontrado", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Representante> call, Throwable t) {
-                Toast.makeText(UpdateRepresentanteActivity.this, "Erro de conexão", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<Representante> call, Throwable t) {
+                    t.printStackTrace();
+                    Toast.makeText(UpdateRepresentanteActivity.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "ID inválido", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void preencherCampos(Representante representante) {
         editNome.setText(representante.getNome());
+        editCpf.setText(representante.getCpf());
         editContato.setText(representante.getEmail());
         editTelefone.setText(representante.getTelefone());
+        editSenha.setText(representante.getPassword());
+        editMeta.setText(String.valueOf(representante.getMeta()));
     }
 
     private void atualizarRepresentante() {
@@ -85,29 +99,39 @@ public class UpdateRepresentanteActivity extends AppCompatActivity {
             return;
         }
 
-        Long id = Long.parseLong(idStr);
+        try {
+            Long id = Long.parseLong(idStr);
 
-        Representante representante = new Representante();
-        representante.setNome(editNome.getText().toString());
-        representante.setEmail(editContato.getText().toString());
-        representante.setTelefone(editTelefone.getText().toString());
+            Representante representante = new Representante();
+            representante.setNome(editNome.getText().toString().trim());
+            representante.setCpf(editCpf.getText().toString().trim());
+            representante.setEmail(editContato.getText().toString().trim());
+            representante.setTelefone(editTelefone.getText().toString().trim());
+            representante.setPassword(editSenha.getText().toString().trim());
+            representante.setMeta(Double.parseDouble(editMeta.getText().toString().trim()));
 
-        Call<Representante> call = representanteEndpoint.update(id, representante);
-        call.enqueue(new Callback<Representante>() {
-            @Override
-            public void onResponse(Call<Representante> call, Response<Representante> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(UpdateRepresentanteActivity.this, "Atualizado com sucesso", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(UpdateRepresentanteActivity.this, "Erro ao atualizar", Toast.LENGTH_SHORT).show();
+
+            Call<Representante> call = representanteEndpoint.update(id, representante);
+            call.enqueue(new Callback<Representante>() {
+                @Override
+                public void onResponse(Call<Representante> call, Response<Representante> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(UpdateRepresentanteActivity.this, "Atualizado com sucesso", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Log.e("API", "Erro atualizarRepresentante - code: " + response.code());
+                        Toast.makeText(UpdateRepresentanteActivity.this, "Erro ao atualizar", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Representante> call, Throwable t) {
-                Toast.makeText(UpdateRepresentanteActivity.this, "Erro de conexão", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<Representante> call, Throwable t) {
+                    t.printStackTrace();
+                    Toast.makeText(UpdateRepresentanteActivity.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "ID inválido", Toast.LENGTH_SHORT).show();
+        }
     }
 }

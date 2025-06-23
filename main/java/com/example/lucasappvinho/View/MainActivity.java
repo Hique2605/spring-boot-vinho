@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.login);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -44,93 +45,101 @@ public class MainActivity extends AppCompatActivity {
         editPassword = findViewById(R.id.editPassword);
 
         Button btnEntrar = findViewById(R.id.btnEntrar);
-        btnEntrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tentarLoginComoAdmin();
-            }
-        });
+        btnEntrar.setOnClickListener(v -> tentarLogin());
     }
 
-    private void tentarLoginComoAdmin() {
-        Api.findByEmailAdmin(editEmail.getText().toString(), new Callback<Admin>() {
+    private void tentarLogin() {
+        String email = editEmail.getText().toString().trim();
+        String senha = editPassword.getText().toString();
+
+        if (email.isEmpty() || senha.isEmpty()) {
+            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        tentarLoginComoAdmin(email, senha);
+    }
+
+    private void tentarLoginComoAdmin(String email, String senha) {
+        Api.findByEmailAdmin(email, new Callback<Admin>() {
             @Override
             public void onResponse(Call<Admin> call, Response<Admin> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Admin admin = response.body();
-                    if (admin.getPassword() != null && admin.getPassword().equals(editPassword.getText().toString())) {
+                    if (senha.equals(admin.getPassword())) {
                         Sessao.tipoUsuario = "admin";
-                        Sessao.idUsuarioLogado = admin.getId();  //  Salva o ID do Admin logado
-                        Toast.makeText(MainActivity.this, "Login como ADMIN", Toast.LENGTH_LONG).show();
+                        Sessao.idUsuarioLogado = admin.getId();
+                        Toast.makeText(MainActivity.this, "Login como ADMIN", Toast.LENGTH_SHORT).show();
                         abrirHome();
                     } else {
-                        Toast.makeText(MainActivity.this, "Senha incorreta (Admin)", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Senha incorreta (Admin)", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    tentarLoginComoRepresentante();
+                    tentarLoginComoRepresentante(email, senha);
                 }
             }
 
             @Override
             public void onFailure(Call<Admin> call, Throwable t) {
-                tentarLoginComoRepresentante();
+                tentarLoginComoRepresentante(email, senha);
             }
         });
     }
 
-    private void tentarLoginComoRepresentante() {
-        Api.findByEmailRepresentante(editEmail.getText().toString(), new Callback<Representante>() {
+    private void tentarLoginComoRepresentante(String email, String senha) {
+        Api.findByEmailRepresentante(email, new Callback<Representante>() {
             @Override
             public void onResponse(Call<Representante> call, Response<Representante> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Representante representante = response.body();
-                    if (representante.getPassword() != null && representante.getPassword().equals(editPassword.getText().toString())) {
+                    if (senha.equals(representante.getPassword())) {
                         Sessao.tipoUsuario = "representante";
-                        Sessao.idUsuarioLogado = representante.getId();  //  Salva o ID do Representante logado
-                        Toast.makeText(MainActivity.this, "Login como REPRESENTANTE", Toast.LENGTH_LONG).show();
+                        Sessao.idUsuarioLogado = representante.getId();
+                        Toast.makeText(MainActivity.this, "Login como REPRESENTANTE", Toast.LENGTH_SHORT).show();
                         abrirHome();
                     } else {
-                        Toast.makeText(MainActivity.this, "Senha incorreta (Representante)", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Senha incorreta (Representante)", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    tentarLoginComoUser();
+                    tentarLoginComoUser(email, senha);
                 }
             }
 
             @Override
             public void onFailure(Call<Representante> call, Throwable t) {
-                tentarLoginComoUser();
+                tentarLoginComoUser(email, senha);
             }
         });
     }
 
-    private void tentarLoginComoUser() {
-        Api.findByEmailUser(editEmail.getText().toString(), new Callback<User>() {
+    private void tentarLoginComoUser(String email, String senha) {
+        Api.findByEmailUser(email, new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     User user = response.body();
-                    if (user.getPassword() != null && user.getPassword().equals(editPassword.getText().toString())) {
+                    if (senha.equals(user.getPassword())) {
                         Sessao.tipoUsuario = "user";
-                        Sessao.idUsuarioLogado = user.getId();  // Salva o ID do User logado
-                        Toast.makeText(MainActivity.this, "Login como USER", Toast.LENGTH_LONG).show();
+                        Sessao.idUsuarioLogado = user.getId();
+                        Toast.makeText(MainActivity.this, "Login como USER", Toast.LENGTH_SHORT).show();
                         abrirHome();
                     } else {
-                        Toast.makeText(MainActivity.this, "Senha incorreta (User)", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Senha incorreta (User)", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "E-mail não cadastrado em nenhum tipo de conta", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "E-mail não cadastrado", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Erro de conexão ao tentar login", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Erro de conexão", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     private void abrirHome() {
-        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }

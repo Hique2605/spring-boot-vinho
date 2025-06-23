@@ -31,7 +31,7 @@ public class ListaClientesActivity extends AppCompatActivity {
     private RecyclerView recyclerViewClientes;
     private ClienteAdapter adapter;
 
-    private ImageButton btnAdicionarCliente ,btnVoltarOculto, btnVoltar ;
+    private ImageButton btnAdicionarCliente ,btnVoltarOculto, btnVoltar , btnEditUser; ;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -74,6 +74,17 @@ public class ListaClientesActivity extends AppCompatActivity {
             }
         });
 
+        // Botão de atualiza cliente
+        btnEditUser = findViewById(R.id.btnEditUser);
+
+        btnEditUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListaClientesActivity.this, UpdateClienteActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -110,6 +121,7 @@ public class ListaClientesActivity extends AppCompatActivity {
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltarOculto = findViewById(R.id.btnVoltarOculto);
+        btnEditUser = findViewById(R.id.btnEditUser);
 
         if (isAdmin) {
             btnVoltar.setVisibility(View.GONE);
@@ -117,7 +129,9 @@ public class ListaClientesActivity extends AppCompatActivity {
 
         } else if (isUser) {
             //nada
+            //nada
         } else {
+            btnEditUser.setVisibility(View.GONE);
             btnVoltar.setVisibility(View.VISIBLE);
             btnVoltarOculto.setVisibility(View.GONE);
         }

@@ -67,6 +67,7 @@ public class RepresentanteService {
     // Metodo auxiliar para atualizar somente os campos não-nulos
     private void updateData(Representante entity, Representante obj) {
         if (obj.getNome() != null) entity.setNome(obj.getNome());
+        if (obj.getCpf() != null) entity.setCpf(obj.getCpf());
         if (obj.getEmail() != null) entity.setEmail(obj.getEmail());
         if (obj.getTelefone() != null) entity.setTelefone(obj.getTelefone());
         if (obj.getPassword() != null) entity.setPassword(obj.getPassword());

@@ -21,9 +21,8 @@ import retrofit2.Response;
 
 public class CadastroVinhoActivity extends AppCompatActivity {
 
-    private EditText editNome, editSafra, editTipo, editUva, editTeorAlcoolico, editVolume, editNotasDegustacao, editHarmonizacao, editPrecoUnitario,editQuantidade;
+    private EditText editNome, editSafra, editTipo, editUva, editTeorAlcoolico, editVolume, editNotasDegustacao, editHarmonizacao, editPrecoUnitario,editImgUrl,editQuantidade;
     private Switch switchEstoque;
-    private ImageView imagePreview;
     private Button btnGravar, btnVoltar;
 
     @SuppressLint("MissingInflatedId")
@@ -31,8 +30,7 @@ public class CadastroVinhoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_vinho);  // xml
-                                                            // Switch switchEstoque = findViewById(R.id.switchEmEstoque);
-                                                            //boolean emEstoque = switchEstoque.isChecked();
+
         // Referenciando os campos
         editNome = findViewById(R.id.editNome);
         editSafra = findViewById(R.id.editSafra);
@@ -43,7 +41,7 @@ public class CadastroVinhoActivity extends AppCompatActivity {
         editNotasDegustacao = findViewById(R.id.editNotasDegustacao);
         editHarmonizacao = findViewById(R.id.editHarmonizacao);
         editPrecoUnitario = findViewById(R.id.editPrecoUnitario);
-        imagePreview = findViewById(R.id.imagePreview);
+        editImgUrl = findViewById(R.id.editImgUrl);
         editQuantidade = findViewById(R.id.editQuantidade);
         switchEstoque = findViewById(R.id.switchEmEstoque);
 
@@ -80,6 +78,7 @@ public class CadastroVinhoActivity extends AppCompatActivity {
         vinho.setNotasDegustacao(editNotasDegustacao.getText().toString());
         vinho.setHarmonizacao(editHarmonizacao.getText().toString());
         vinho.setPrecoUnitario(Double.valueOf(editPrecoUnitario.getText().toString()));
+        vinho.setImgUrl(editImgUrl.getText().toString());
         vinho.setQuantidade(Double.valueOf(editQuantidade.getText().toString()));
         vinho.setEmEstoque(switchEstoque.isChecked());
 

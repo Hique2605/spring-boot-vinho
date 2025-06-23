@@ -63,15 +63,15 @@ public class TestConfig implements CommandLineRunner {
 
 		// Representantes
 		Representante r1 = new Representante(null, UserType.REPRESENTANTE,"Carlos Silva", "07206101925", "carlos@rep.com", "11999999999", "senha123", 5000.0);
-		Representante r2 = new Representante(null, UserType.REPRESENTANTE,"Fernanda Lima","07206101926", "fernanda@rep.com", "11988888888", "senha456", 7000.0);
+		Representante r2 = new Representante(null, UserType.REPRESENTANTE,"Fernanda Lima","07206101926", "fernando@rep.com", "11988888888", "senha456", 7000.0);
 		Representante r3 = new Representante(null, UserType.REPRESENTANTE, "Carleto Pedra", "07206101927", "fernanda@rep.com", "11988888888", "senha456", 7000.0);
 
 		representanteRepository.saveAll(Arrays.asList(r1, r2, r3));
 
 		// Usuários
-		User u1 = new User(null, UserType.USER,"Maria Brown", "maria@gmail.com", "988888888", "RUA A", "123456");
-		User u2 = new User(null, UserType.USER, "Alex Green", "alex@gmail.com", "977777777", "RUA B", "123456");
-		User u3 = new User(null, UserType.USER,"Para de guaio", "guaio@gmail.com", "977777777", "RUA C", "123456");
+		User u1 = new User(null, UserType.USER,"Maria Brown", "maria@gmail.com", "988888888","Criciuma" , "RUA A", "123456");
+		User u2 = new User(null, UserType.USER, "Alex Green", "alex@gmail.com", "977777777","Meleiro" , "RUA B", "123456");
+		User u3 = new User(null, UserType.USER,"Para de guaio", "guaio@gmail.com", "977777777","Torres" , "RUA C", "123456");
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
 		// Pedidos com representante vinculado

@@ -15,13 +15,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="CADASTRO DO CLIENTE"
+            android:text="EDITAR CLIENTE POR ID"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/vermelhoVinho"/>
+            android:textColor="@color/vermelhoVinho"
+            android:layout_marginBottom="20dp" />
 
+        <!-- Campo para inserir o ID -->
+        <EditText
+            android:id="@+id/editIdCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID do Cliente"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp" />
+
+        <!-- Botão para buscar -->
+        <Button
+            android:id="@+id/btnBuscarCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Cliente"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnlogar" />
+
+        <!-- Campos do cliente preenchidos após a busca -->
         <EditText
             android:id="@+id/editTextNome"
             android:layout_width="match_parent"
@@ -29,14 +49,15 @@
             android:hint="Nome"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
+            android:layout_marginTop="20dp"
             android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editTextSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:hint="Senha"
+            android:layout_marginTop="10dp"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
             android:inputType="textPassword" />
@@ -71,12 +92,36 @@
             android:padding="10dp"
             android:inputType="textPostalAddress" />
 
+        <!-- Switch para cliente ativo -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cliente Ativo"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/preto" />
+
+            <Switch
+                android:id="@+id/switchAtivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- Botões -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:gravity="end">
 
             <Button
                 android:id="@+id/btnGravar"
@@ -84,14 +129,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:text="GRAVAR"
-                android:background="@drawable/btnlogar"/>
+                android:background="@drawable/btnlogar" />
 
             <Button
                 android:id="@+id/btnVoltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VOLTAR"
-                android:background="@drawable/btnlogar"/>
+                android:background="@drawable/btnlogar" />
         </LinearLayout>
 
     </LinearLayout>

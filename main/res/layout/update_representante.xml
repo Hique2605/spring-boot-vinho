@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editIdBusca"
+            android:id="@+id/editIdRepresentante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="ID do Representante"
@@ -25,17 +25,7 @@
             android:layout_height="wrap_content"
             android:text="Buscar Representante"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btnlogar"
-            />
-
-        <EditText
-            android:id="@+id/editIdRepresentante"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ID do Representante"
-            android:inputType="number"
-            android:background="@android:drawable/editbox_background"
-            android:padding="10dp" />
+            android:background="@drawable/btnlogar" />
 
         <EditText
             android:id="@+id/editNome"
@@ -44,25 +34,57 @@
             android:hint="Nome"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/editCpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CPF"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:layout_marginTop="10dp" />
 
         <EditText
             android:id="@+id/editContato"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contato (e-mail)"
+            android:inputType="textEmailAddress"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
 
         <EditText
             android:id="@+id/editTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"
+            android:inputType="phone"
             android:background="@android:drawable/editbox_background"
             android:padding="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/editSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/editMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Meta (R$)"
+            android:inputType="numberDecimal"
+            android:background="@android:drawable/editbox_background"
+            android:padding="10dp"
+            android:layout_marginTop="10dp" />
 
         <Button
             android:id="@+id/btnAtualizar"
@@ -70,7 +92,7 @@
             android:layout_height="wrap_content"
             android:text="Atualizar"
             android:background="@drawable/btnlogar"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
 
         <Button
             android:id="@+id/btnCancelar"
@@ -78,6 +100,6 @@
             android:layout_height="wrap_content"
             android:text="Cancelar"
             android:background="@drawable/btnlogar"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 </ScrollView>

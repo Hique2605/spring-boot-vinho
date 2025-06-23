@@ -24,7 +24,7 @@ public class UpdateVinhoActivity extends AppCompatActivity {
             editVolume, editNotasDegustacao, editHarmonizacao, editPrecoUnitario,
             editimgUrl, editQuantidade;
     private Switch switchEmEstoque;
-    private ImageView imagePreview;
+
     private Button btnAtualizar, btnCancelar, btnBuscar;
 
     private Long vinhoId;
@@ -49,7 +49,6 @@ public class UpdateVinhoActivity extends AppCompatActivity {
         editimgUrl = findViewById(R.id.editimgUrl);
         editQuantidade = findViewById(R.id.editQuantidade);
         switchEmEstoque = findViewById(R.id.switchEmEstoque);
-        imagePreview = findViewById(R.id.imagePreview);
         btnAtualizar = findViewById(R.id.btnAtualizar);
         btnCancelar = findViewById(R.id.btnCancelar);
         btnBuscar = findViewById(R.id.btnBuscar);

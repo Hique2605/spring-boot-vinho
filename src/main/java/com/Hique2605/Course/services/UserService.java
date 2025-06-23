@@ -71,11 +71,14 @@ public class UserService {
 			}
 		}
 
-		//metodo que atualiza, nao deixa atualizar senha e id
+		//metodo que atualiza
 		private void updateData(User entity, User obj) {
 			if (obj.getName() != null) entity.setName(obj.getName());
 			if (obj.getEmail() != null) entity.setEmail(obj.getEmail());
 			if (obj.getPhone() != null) entity.setPhone(obj.getPhone());
+			if (obj.getCidade() != null) entity.setCidade(obj.getCidade());
+			if (obj.getEndereco() != null) entity.setEndereco(obj.getEndereco());
+			if (obj.getPassword() != null) entity.setPassword(obj.getPassword());
 		}
 	
 }

@@ -35,6 +35,12 @@
         android:src="@drawable/voltar"
         android:layout_marginLeft="20dp"
         android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
     <ImageButton
         android:id="@+id/btnAdicionarCliente"
         android:layout_width="50dp"
@@ -42,6 +48,17 @@
         android:background="@drawable/circulo_vermelho"
         android:src="@drawable/mais"
         android:layout_margin="16dp"/>
+
+    <ImageButton
+        android:id="@+id/btnEditUser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circulo_vermelho"
+        android:src="@drawable/update"
+        android:layout_margin="16dp"/>
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewClientes"
