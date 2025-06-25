@@ -1,6 +1,7 @@
 package com.example.lucasappvinho.View.Representante;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -19,13 +20,18 @@ import com.example.lucasappvinho.Sessao;
 import com.example.lucasappvinho.View.PedidosActivity;
 import com.example.lucasappvinho.adapter.OrderItemAdapter;
 import com.example.lucasappvinho.api.Api;
+import com.example.lucasappvinho.api.model.Enums.OrderStatus;
 import com.example.lucasappvinho.api.model.Order;
 import com.example.lucasappvinho.api.model.OrderItem;
+import com.example.lucasappvinho.api.model.Payment;
 import com.example.lucasappvinho.api.model.Representante;
 import com.example.lucasappvinho.api.model.User;
 import com.example.lucasappvinho.api.model.Vinho;
 import com.google.gson.Gson;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +42,7 @@ import retrofit2.Response;
 public class RepresentantePedidoActivity extends AppCompatActivity {
 
     private ImageButton btnVoltar;
-    private Spinner spinnerClientes, spinnerVinhos;
+    private Spinner spinnerClientes, spinnerVinhos, spinnerPagamento;
     private EditText editQuantidade, editPreco;
     private Button btnAdicionarItem, btnSalvarPedido;
     private RecyclerView recyclerViewItens;
@@ -51,8 +57,10 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_novo_pedido);
 
+        // Inicializações
         spinnerClientes = findViewById(R.id.spinnerClientes);
         spinnerVinhos = findViewById(R.id.spinnerVinhos);
+        spinnerPagamento = findViewById(R.id.spinnerPagamento);
         editQuantidade = findViewById(R.id.editQuantidade);
         editPreco = findViewById(R.id.editPreco);
         btnAdicionarItem = findViewById(R.id.btnAdicionarItem);
@@ -63,8 +71,10 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
         itemAdapter = new OrderItemAdapter(itensPedido);
         recyclerViewItens.setAdapter(itemAdapter);
 
+        // Carregamento de dados
         carregarClientes();
         carregarVinhos();
+        carregarFormasPagamento();
 
         btnAdicionarItem.setOnClickListener(v -> adicionarItem());
         btnSalvarPedido.setOnClickListener(v -> salvarPedido());
@@ -123,6 +133,16 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
         });
     }
 
+    private void carregarFormasPagamento() {
+        ArrayAdapter<OrderStatus> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                OrderStatus.values()
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerPagamento.setAdapter(adapter);
+    }
+
     private void adicionarItem() {
         int posVinho = spinnerVinhos.getSelectedItemPosition();
         String quantidadeStr = editQuantidade.getText().toString().trim();
@@ -130,7 +150,6 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
 
         if (posVinho >= 0 && posVinho < listaVinhos.size() && !quantidadeStr.isEmpty() && !precoStr.isEmpty()) {
             Vinho vinhoSelecionado = listaVinhos.get(posVinho);
-
             int quantidade = Integer.parseInt(quantidadeStr);
             double preco = Double.parseDouble(precoStr);
 
@@ -166,8 +185,8 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
             return;
         }
 
+        // Preencher dados do pedido
         User clienteSelecionado = listaClientes.get(posCliente);
-
         Order novoPedido = new Order();
         novoPedido.setClient(clienteSelecionado);
 
@@ -175,10 +194,22 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
         representante.setId(Sessao.idUsuarioLogado);
         novoPedido.setRepresentante(representante);
 
-        novoPedido.setOrderStatus("WAITING_PAYMENT");
         novoPedido.setItems(itensPedido);
 
-        // ✅ Log do JSON antes de enviar
+        // Definir o status do pedido
+        OrderStatus statusSelecionado = (OrderStatus) spinnerPagamento.getSelectedItem();
+        novoPedido.setOrderStatus(statusSelecionado.name());
+
+        // Adicionar pagamento (fixo ou simulado)
+        Payment pagamento = new Payment();
+        pagamento.setId(1L); // Se o backend gerar, pode deixar como null
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ZonedDateTime nowLocal = ZonedDateTime.now(ZoneId.of("America/Sao_Paulo"));
+            Instant instantUTC = nowLocal.toInstant();  // converte para UTC mazena em UTC para manter padrão global e evitar confusão
+            pagamento.setMoment(instantUTC.toString());
+        }
+        novoPedido.setPayment(pagamento);
+
         Log.d("API-JSON", new Gson().toJson(novoPedido));
 
         Api.getOrderEndpoint().criarPedido(novoPedido).enqueue(new Callback<Order>() {

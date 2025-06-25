@@ -93,6 +93,7 @@ public class Order {
     }
 
     public void setItems(List<OrderItem> itensPedido) {
-
+        this.items.clear();
+        this.items.addAll(itensPedido);
     }
 }

@@ -101,6 +101,5 @@ public class OrderService {
 		return obj;
 	}
 
-	//fazer find findByRepresentanteId    E  Id do client ? exp seller id tal / do client tal idclient
-	//http://localhost:8080/orders/representante/3/users/1
+
 }
