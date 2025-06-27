@@ -101,5 +101,17 @@ public class OrderService {
 		return obj;
 	}
 
+	@Transactional
+	public void deleteById(Long id) {
+		Order order = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException(id));
+
+		// Força carregamento dos itens
+		order.getItems().size();
+
+		orderItemRepository.deleteAll(order.getItems());
+
+		repository.delete(order);
+	}
 
 }

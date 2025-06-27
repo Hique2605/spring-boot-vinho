@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lucasappvinho.R;
 import com.example.lucasappvinho.Sessao;
 import com.example.lucasappvinho.View.Admin.PainelAdmActivity;
+import com.example.lucasappvinho.View.Representante.DeletarPedidoActivity;
 import com.example.lucasappvinho.View.Representante.RepresentantePedidoActivity;
 import com.example.lucasappvinho.adapter.OrderAdapter;
 import com.example.lucasappvinho.api.Api;
@@ -36,7 +37,7 @@ public class PedidosActivity extends AppCompatActivity {
     private ImageButton btnVoltar;
     private ImageButton btnVoltarOculto;
 
-    private Button btnNovoPedido;
+    private Button btnNovoPedido, btnDeletarPedido;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +74,12 @@ public class PedidosActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //botão deletar pedido
+        btnDeletarPedido = findViewById(R.id.btnDeletarPedido);
+        btnDeletarPedido.setOnClickListener(view -> {
+            Intent intent = new Intent(PedidosActivity.this, DeletarPedidoActivity.class);
+            startActivity(intent);
+        });
 
         carregarPedidos();
     }

@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -23,5 +24,8 @@ public interface OrderEndpoint {
     // Criar um novo pedido (para o Representante)
     @POST("/orders")
     Call<Order> criarPedido(@Body Order novoPedido);
+
+    @DELETE("orders/{id}")
+    Call<Void> deletarPedido(@Path("id") Long id);
 
 }

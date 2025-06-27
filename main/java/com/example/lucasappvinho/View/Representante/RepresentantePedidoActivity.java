@@ -67,6 +67,7 @@ public class RepresentantePedidoActivity extends AppCompatActivity {
         btnSalvarPedido = findViewById(R.id.btnSalvarPedido);
         recyclerViewItens = findViewById(R.id.recyclerViewItens);
 
+
         recyclerViewItens.setLayoutManager(new LinearLayoutManager(this));
         itemAdapter = new OrderItemAdapter(itensPedido);
         recyclerViewItens.setAdapter(itemAdapter);
