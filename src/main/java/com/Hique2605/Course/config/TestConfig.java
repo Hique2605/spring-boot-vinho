@@ -38,40 +38,36 @@ public class TestConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		// Vinhos
-		Vinho v1 = new Vinho(null, "Vinho Tinto", "2020", "Tinto", "Cabernet", "13%", "750ml",
-				"Notas frutadas", "Carnes vermelhas", 89.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 50.0, true);
-		Vinho v2 = new Vinho(null, "Vinho Branco", "2021", "Branco", "Chardonnay", "12%", "750ml",
-				"Aroma floral", "Peixes", 69.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 30.0, true);
-		Vinho v3 = new Vinho(null, "Vinho TESTE", "2021", "Branco", "Chardonnay", "12%", "750ml",
-				"Aroma floral", "Peixes", 55.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 30.0, true);
-		Vinho v4 = new Vinho(null, "Vinho preto", "2021", "Branco", "Chardonnay", "12%", "750ml",
-				"Aroma floral", "Peixes", 35.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 30.0, true);
-		Vinho v5 = new Vinho(null, "Vinho branco", "2021", "Branco", "Chardonnay", "12%", "750ml",
-				"Aroma floral", "Peixes", 49.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 30.0, true);
-		Vinho v6 = new Vinho(null, "Vinho branco", "2021", "Branco", "Chardonnay", "12%", "750ml",
-				"Aroma floral", "Peixes", 50.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 30.0, true);
-		Vinho v7 = new Vinho(null, "Vinho Charlamet", "2021", "Branco", "Chardonnay", "12%", "750ml",
-				"Aroma floral", "Carne", 80.90, "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg", 30.0, true);
+		String imgUrl = "https://images.tcdn.com.br/img/img_prod/1022248/vinho_frances_tinto_chateau_de_sales_2014_garrafa_750ml_741_1_ea70f195ee99027a995afab072565ae3.jpg";
 
-		vinhoRepository.saveAll(Arrays.asList(v1, v2, v3, v4, v5, v6,v7));
+		// Vinhos (5 com a mesma imagem)
+		Vinho v1 = new Vinho(null, "Vinho Merlot", "2020", "Tinto", "Merlot", "13%", "750ml",
+				"Notas frutadas", "Carnes vermelhas", 89.90, imgUrl, 50.0, true);
+		Vinho v2 = new Vinho(null, "Vinho Chardonnay", "2021", "Branco", "Chardonnay", "12%", "750ml",
+				"Aroma floral", "Peixes", 69.90, imgUrl, 30.0, true);
+		Vinho v3 = new Vinho(null, "Vinho Rosé", "2022", "Rosé", "Pinot Noir", "11.5%", "750ml",
+				"Refrescante e leve", "Massas", 59.90, imgUrl, 40.0, true);
+		Vinho v4 = new Vinho(null, "Vinho Cabernet", "2019", "Tinto", "Cabernet Sauvignon", "13.5%", "750ml",
+				"Encorpado e intenso", "Queijos fortes", 99.90, imgUrl, 25.0, true);
+		Vinho v5 = new Vinho(null, "Vinho Syrah", "2020", "Tinto", "Syrah", "14%", "750ml",
+				"Notas de especiarias", "Churrasco", 79.90, imgUrl, 35.0, true);
 
-		//cria admin
-		Admin adm01 = new Admin(null,UserType.fromString("ADMIN"),"Hique","hique@gmail.com","99885625","555");
+		vinhoRepository.saveAll(Arrays.asList(v1, v2, v3, v4, v5));
+
+		// Admin com e-mail e senha específicos
+		Admin adm01 = new Admin(null, UserType.ADMIN, "Administrador", "admin@gmail.com", "99999999", "admin");
 		adminRepository.saveAll(Arrays.asList(adm01));
 
-
-		// Representantes
-		Representante r1 = new Representante(null, UserType.REPRESENTANTE,"Carlos Silva", "07206101925", "carlos@rep.com", "11999999999", "senha123", 5000.0);
-		Representante r2 = new Representante(null, UserType.REPRESENTANTE,"Fernanda Lima","07206101926", "fernando@rep.com", "11988888888", "senha456", 7000.0);
-		Representante r3 = new Representante(null, UserType.REPRESENTANTE, "Carleto Pedra", "07206101927", "fernanda@rep.com", "11988888888", "senha456", 7000.0);
-
+		// Representantes (ajustado o 3º)
+		Representante r1 = new Representante(null, UserType.REPRESENTANTE, "Carlos Silva", "07206101925", "carlos@rep.com", "11999999999", "senha123", 5000.0);
+		Representante r2 = new Representante(null, UserType.REPRESENTANTE, "Fernanda Lima", "07206101926", "fernanda@rep.com", "11988888888", "senha456", 7000.0);
+		Representante r3 = new Representante(null, UserType.REPRESENTANTE, "João Batista", "07206101927", "joao@rep.com", "11977777777", "senha789", 6500.0);
 		representanteRepository.saveAll(Arrays.asList(r1, r2, r3));
 
-		// Usuários
-		User u1 = new User(null, UserType.USER,"Maria Brown", "maria@gmail.com", "988888888","Criciuma" , "RUA A", "123456");
-		User u2 = new User(null, UserType.USER, "Alex Green", "alex@gmail.com", "977777777","Meleiro" , "RUA B", "123456");
-		User u3 = new User(null, UserType.USER,"Para de guaio", "guaio@gmail.com", "977777777","Torres" , "RUA C", "123456");
+		// Usuários (ajustado o 3º)
+		User u1 = new User(null, UserType.USER, "Maria Brown", "maria@gmail.com", "988888888", "Criciuma", "RUA A", "123456");
+		User u2 = new User(null, UserType.USER, "Alex Green", "alex@gmail.com", "977777777", "Meleiro", "RUA B", "123456");
+		User u3 = new User(null, UserType.USER, "Joãozinho", "joaozinho@gmail.com", "966666666", "Torres", "RUA C", "123456");
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
 		// Pedidos com representante vinculado
@@ -91,10 +87,5 @@ public class TestConfig implements CommandLineRunner {
 		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 		o1.setPayment(pay1);
 		orderRepository.save(o1); // necessário pois o cascade já está configurado
-
-
-
-
-
 	}
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/creme">
+
+    <!-- Botão voltar -->
+    <ImageButton
+        android:id="@+id/btnVoltar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:src="@drawable/sair"
+        android:contentDescription="Voltar"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Representantes"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/preto"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo para buscar por ID -->
+    <EditText
+        android:id="@+id/editIdRepresentante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o ID do representante"
+        android:inputType="number"
+        android:padding="12dp"
+        android:background="@drawable/campo_busca_background" />
+
+    <!-- Botão buscar -->
+    <Button
+        android:id="@+id/btnBuscarPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar Pedidos"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btnlogar"
+        android:textColor="@color/creme"
+        android:padding="12dp" />
+
+    <!-- Lista de pedidos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPedidos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/campo_lista"
+        android:padding="8dp" />
+
+</LinearLayout>
